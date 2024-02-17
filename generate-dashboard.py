@@ -3,6 +3,7 @@ import csv
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 import datetime
+import matplotlib.pyplot as plt
 
 # Load the Jinja template environment
 env = Environment(
@@ -113,3 +114,29 @@ rendered_template = template.render(data=sorted_entries)
 
 with open('index.html', 'w') as f:
     f.write(rendered_template)
+
+
+# Extracting data for plotting
+dates = [data["date"] for data in sorted_entries]
+vo2_max = [float(data["vo2_max"]) if "vo2_max" in data else None for data in sorted_entries]
+weight = [float(data["weight"]) if "weight" in data else None for data in sorted_entries]
+
+bmi = [float(data["bmi"]) if "bmi" in data else None for data in sorted_entries]
+sleep_hours = [float(data["sleep_hours"]) / 60 if "sleep_hours" in data else None for data in sorted_entries]
+
+# Plotting the data
+plt.plot(dates, weight, label='Weight')
+plt.plot(dates, vo2_max, label='VO2 Max')
+plt.plot(dates, bmi, label='BMI')
+plt.plot(dates, sleep_hours, label='Sleep Hours')
+
+# Adding labels and title
+plt.xlabel('Date')
+plt.ylabel('Value')
+plt.title('Series Data')
+plt.xticks(rotation=45)
+plt.legend()
+
+# Save the plot as a PNG file
+plt.tight_layout()
+plt.savefig('chart.png')
