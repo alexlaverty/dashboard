@@ -26,3 +26,18 @@ print_secret("CLIENT_SECRET", CLIENT_SECRET)
 print_secret("FITBIT_TOKEN", FITBIT_TOKEN)
 print_secret("MY_FITBIT_TOKEN", MY_FITBIT_TOKEN)
 
+def write_token_dict(token_dict):
+    print("refreshed_token dict :")
+    print(token_dict)
+    with open('token.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(token_dict))
+
+
+authd_client = fb.Fitbit(
+                    CLIENT_ID,
+                    CLIENT_SECRET,
+                    access_token=FITBIT_TOKEN["access_token"],
+                    refresh_token=FITBIT_TOKEN["refresh_token"],
+                    expires_in=FITBIT_TOKEN["expires_in"],
+                    refresh_cb=write_token_dict
+                )
