@@ -21,7 +21,7 @@ def print_secret(name, secret):
     print(' '.join(secret))
 
 print_secret("GH_TOKEN", GH_TOKEN)
-print_secret("CLIENT_ID", GH_TOKEN)
+print_secret("CLIENT_ID", CLIENT_ID)
 print_secret("CLIENT_SECRET", CLIENT_SECRET)
 print_secret("FITBIT_TOKEN", FITBIT_TOKEN)
 
