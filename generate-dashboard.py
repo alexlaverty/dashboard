@@ -140,8 +140,8 @@ print(weight_data)
 # Define CSV file path
 csv_file_path = "data.csv"
 
-if 'body-weight' in weight_data['weight']:
-    weight_values = weight_data['weight']['body-weight']
+if 'body-weight' in weight_data:
+    weight_values = weight_data['body-weight']
     with open(csv_file_path, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Date", "Weight"])
