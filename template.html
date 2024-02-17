@@ -33,7 +33,7 @@
                 <th title="Number of heartbeats per minute at rest">Heart</th>
                 <!-- <th title="Blood sugar level after fasting">FBS</th> -->
                 <th title="Body Mass Index">BMI</th>
-                <th title="Number of hours of sleep">Sleep</th>
+                <th title="Number of hours of sleep">Sleep (hours)</th>
                 <!-- <th title="One Repetition Maximum (1RM)">Bench Press</th> -->
                 <th title="Number of steps per day">Steps</th>
                 <!-- <th title="Workout">Workout</th> -->
@@ -51,7 +51,7 @@
                     <td style="background-color: {{ entry.vo2_max_color }};">{{ entry.vo2_max }}</td>
                     <td style="background-color: {{ entry.resting_heart_rate_color }};">{{ entry.resting_heart_rate }}</td>
                     <td style="background-color: {{ entry.bmi_color }};">{{ entry.bmi }}</td>
-                    <td style="background-color: {{ entry.sleep_hours_color }};">{{ entry.sleep_hours}}</td>
+                    <td style="background-color: {{ entry.sleep_hours_color }};">{{ '%.1f' | format((entry.sleep_hours|default(0)|int) / 60) }}</td>
                     <td style="background-color: {{ entry.steps_color }};">{{ entry.steps }}</td>
                     <td style="background-color: {{ entry.workout_color }};">{{ entry.workout }}</td>
                 </tr>
