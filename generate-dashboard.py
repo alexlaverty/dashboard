@@ -94,21 +94,22 @@ def get_file_contents(filename: Path) -> str:
         return f.read()
 
 def write_token_dict(token_dict):
-    print("refreshed_token dict :")
-    file_contents: str = str(token_dict)
+    if token_dict:
+        print("refreshed_token dict :")
+        file_contents: str = str(token_dict)
 
-    print("file_contents:")
-    print(file_contents)
-    repo_key: Any = get_repo_key()
+        print("file_contents:")
+        print(file_contents)
+        repo_key: Any = get_repo_key()
 
-    print("repo_key:")
-    print(repo_key)
+        print("repo_key:")
+        print(repo_key)
 
-    encrypted_secret: str = encrypt(repo_key["key"], file_contents)
-    print("encrypted_secret:")
-    print(encrypted_secret)
+        encrypted_secret: str = encrypt(repo_key["key"], file_contents)
+        print("encrypted_secret:")
+        print(encrypted_secret)
 
-    write_secret(repo_key, encrypted_secret)
+        write_secret(repo_key, encrypted_secret)
 
 def print_secret(name, secret):
     print(name)
@@ -128,6 +129,9 @@ authd_client = fb.Fitbit(
 # Get weight values
 
 weight_data = authd_client.time_series('body/weight', period=fitbit_period)
+
+print("weight_data")
+print(weight_data)
 
 # Define CSV file path
 csv_file_path = "data.csv"
