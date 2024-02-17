@@ -16,8 +16,12 @@ FITBIT_TOKEN = os.environ.get('FITBIT_TOKEN')
 
 secrets = [CLIENT_ID, CLIENT_SECRET, GH_TOKEN, FITBIT_TOKEN]
 
-def print_secret(secret):
+def print_secret(name, secret):
+    print(name)
     print(' '.join(secret))
 
-for secret in secrets:
-    print_secret(secret)
+print_secret("GH_TOKEN", GH_TOKEN)
+print_secret("CLIENT_ID", GH_TOKEN)
+print_secret("CLIENT_SECRET", CLIENT_SECRET)
+print_secret("FITBIT_TOKEN", FITBIT_TOKEN)
+
