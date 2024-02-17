@@ -26,29 +26,14 @@ def write_token_dict(token_dict):
     if token_dict:
         print("refreshed_token dict :")
         file_contents: str = str(token_dict)
-
-        print("file_contents:")
-        print(file_contents)
         repo_key: Any = get_repo_key()
-
-        print("repo_key:")
-        print(repo_key)
-
         encrypted_secret: str = encrypt(repo_key["key"], file_contents)
-        print("encrypted_secret:")
-        print(encrypted_secret)
-
         write_secret(repo_key, encrypted_secret)
 
 def print_secret(name, secret):
     print(name)
     print(' '.join(secret))
 
-print("os.environ.get('FITBIT_TOKEN')")
-print(os.environ.get('FITBIT_TOKEN'))
-
-print("FITBIT_TOKEN")
-print(FITBIT_TOKEN)
 
 authd_client = fb.Fitbit(
                     CLIENT_ID,
@@ -60,7 +45,6 @@ authd_client = fb.Fitbit(
                 )
 
 # Get weight values
-
 weight_data = authd_client.time_series('body/weight', period=fitbit_period)
 
 print("weight_data")
