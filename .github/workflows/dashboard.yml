@@ -23,6 +23,11 @@ jobs:
 
       - name: Run Python script
         run: python update_fitbit_token.py
+        env:
+          FITBIT_CLIENT_ID: ${{ secrets.FITBIT_CLIENT_ID }}
+          FITBIT_SECRET: ${{ secrets.FITBIT_SECRET }}
+          FITBIT_TOKEN: ${{ secrets.FITBIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set GitHub secret
         run: |
