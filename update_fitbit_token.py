@@ -73,4 +73,4 @@ authd_client = fb.Fitbit(
                     refresh_cb=write_token_dict
                 )
 
-update_github_secret(MY_FITBIT_TOKEN, str(FITBIT_TOKEN))
+update_github_secret("MY_FITBIT_TOKEN", str(FITBIT_TOKEN))
