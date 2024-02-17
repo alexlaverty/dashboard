@@ -2,6 +2,7 @@ from importers.fitbit import syncfitbit
 import csv
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
+import datetime
 
 # Load the Jinja template environment
 env = Environment(
@@ -88,6 +89,17 @@ consolidated_entries = read_csv(filename)
 # Apply color mapping for each metric
 for metric in METRIC_COLOR_MAPPING.keys():
     apply_color_mapping(consolidated_entries, metric)
+
+for entry in consolidated_entries:
+    # Convert the date string to a datetime object
+    date_obj = datetime.datetime.strptime(entry['date'], '%Y-%m-%d')
+    # Check if the day of the week is either Saturday (5) or Sunday (6)
+    if date_obj.weekday() in [5, 6]:
+        # If it's a weekend, apply the color
+        entry['date_color'] = "#D3D3D3"  # Example color for weekends
+    else:
+        # If it's not a weekend, do nothing or apply a different color
+        entry['date_color'] = "#FFFFFF"
 
 sorted_entries = sorted(consolidated_entries, key=lambda x: x["date"], reverse=True)
 
