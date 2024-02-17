@@ -19,6 +19,7 @@ api_endpoint = f"https://api.github.com/repos/{github_user}/{github_repo}"
 CLIENT_ID = os.environ.get('FITBIT_CLIENT_ID')
 CLIENT_SECRET = os.environ.get('FITBIT_SECRET')
 FITBIT_TOKEN = json.loads(os.environ.get('FITBIT_TOKEN'))
+fitbit_period = '1w' # Supported: 1d | 7d | 30d | 1w | 1m
 
 def get_repo_key() -> Dict:
     """Get the key to a GitHub repository.
@@ -109,6 +110,12 @@ def write_token_dict(token_dict):
 
     write_secret(repo_key, encrypted_secret)
 
+def print_secret(name, secret):
+    print(name)
+    print(' '.join(secret))
+
+print_secret("FITBIT_TOKEN", FITBIT_TOKEN)
+
 authd_client = fb.Fitbit(
                     CLIENT_ID,
                     CLIENT_SECRET,
@@ -119,7 +126,8 @@ authd_client = fb.Fitbit(
                 )
 
 # Get weight values
-weight_data = authd_client.get_bodyweight(period='7d')
+
+weight_data = authd_client.time_series('body/weight', period=fitbit_period)
 
 # Define CSV file path
 csv_file_path = "data.csv"

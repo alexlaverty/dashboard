@@ -1,4 +1,4 @@
-name: Update Fitbit Token
+name: Generate Dashboard
 permissions:
   contents: write
 on:
@@ -22,9 +22,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run Python script
-        #run: python update_fitbit_token.py
-        run: python refresh_token.py
+      - name: Run Generate Dashboard Python Script
+        run: python generate-dashboard.py
         env:
           FITBIT_CLIENT_ID: ${{ secrets.FITBIT_CLIENT_ID }}
           FITBIT_SECRET: ${{ secrets.FITBIT_SECRET }}
