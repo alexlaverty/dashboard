@@ -1,5 +1,6 @@
 name: Update Fitbit Token
-
+permissions:
+  contents: write
 on:
   schedule:
     - cron: '0 0 * * *'  # Run every day at midnight UTC
