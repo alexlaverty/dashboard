@@ -65,13 +65,13 @@ print_secret("MY_FITBIT_TOKEN", MY_FITBIT_TOKEN)
 
 
 
-authd_client = fb.Fitbit(
-                    CLIENT_ID,
-                    CLIENT_SECRET,
-                    access_token=FITBIT_TOKEN["access_token"],
-                    refresh_token=FITBIT_TOKEN["refresh_token"],
-                    expires_in=FITBIT_TOKEN["expires_in"],
-                    refresh_cb=write_token_dict
-                )
+# authd_client = fb.Fitbit(
+#                     CLIENT_ID,
+#                     CLIENT_SECRET,
+#                     access_token=FITBIT_TOKEN["access_token"],
+#                     refresh_token=FITBIT_TOKEN["refresh_token"],
+#                     expires_in=FITBIT_TOKEN["expires_in"],
+#                     refresh_cb=write_token_dict
+#                 )
 
-update_github_secret("MY_FITBIT_TOKEN", str(FITBIT_TOKEN))
+# update_github_secret("MY_FITBIT_TOKEN", str(FITBIT_TOKEN))
