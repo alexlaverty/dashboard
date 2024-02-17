@@ -23,7 +23,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Python script
-        run: python refresh_token.py
+        run: python update_fitbit_token.py
         env:
           FITBIT_CLIENT_ID: ${{ secrets.FITBIT_CLIENT_ID }}
           FITBIT_SECRET: ${{ secrets.FITBIT_SECRET }}
@@ -31,9 +31,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
           MY_FITBIT_TOKEN: ${{ secrets.MY_FITBIT_TOKEN }}
 
-      - name: Set GitHub secret
-        run: |
-          echo "$(<token.json)" | tr -d '\n' | base64 --wrap=0 > token_base64.txt
-          echo "::set-secret name=FITBIT_TOKEN::$(<token_base64.txt)"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Set GitHub secret
+      #   run: |
+      #     echo "$(<token.json)" | tr -d '\n' | base64 --wrap=0 > token_base64.txt
+      #     echo "::set-secret name=FITBIT_TOKEN::$(<token_base64.txt)"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
