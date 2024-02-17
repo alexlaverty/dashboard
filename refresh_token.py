@@ -91,9 +91,16 @@ def get_file_contents(filename: Path) -> str:
 
 
 file_contents: str = "THIS IS MY TOKEN BRO"
+print("file_contents:")
+print(file_contents)
 
 repo_key: Any = get_repo_key()
+
+print("repo_key:")
 print(repo_key)
 
 encrypted_secret: str = encrypt(repo_key["key"], file_contents)
+print("encrypted_secret:")
+print(encrypted_secret)
+
 write_secret(repo_key, encrypted_secret)
