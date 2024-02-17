@@ -6,7 +6,7 @@ import requests
 # Your Fitbit API credentials
 CLIENT_ID = os.environ.get('FITBIT_CLIENT_ID')
 CLIENT_SECRET = os.environ.get('FITBIT_SECRET')
-
+MY_FITBIT_TOKEN = os.environ.get('FITBIT_SECRET')
 # GitHub Actions repository secrets
 GH_TOKEN = os.environ.get('GH_TOKEN')
 REPO_OWNER = 'alexlaverty'
@@ -24,4 +24,5 @@ print_secret("GH_TOKEN", GH_TOKEN)
 print_secret("CLIENT_ID", CLIENT_ID)
 print_secret("CLIENT_SECRET", CLIENT_SECRET)
 print_secret("FITBIT_TOKEN", FITBIT_TOKEN)
+print_secret("MY_FITBIT_TOKEN", MY_FITBIT_TOKEN)
 
