@@ -1,0 +1,32 @@
+name: Update Fitbit Token
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run every day at midnight UTC
+  push:
+    branches:
+      - main
+jobs:
+  update_token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pip install fitbit
+
+      - name: Run Python script
+        run: python update_fitbit_token.py
+
+      - name: Set GitHub secret
+        run: |
+          echo "$(<token.json)" | tr -d '\n' | base64 --wrap=0 > token_base64.txt
+          echo "::set-secret name=FITBIT_TOKEN::$(<token_base64.txt)"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
