@@ -1,0 +1,62 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantified Self Health Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th title="Date of the health entry">Date</th>
+                <th title="Weight of the user (in kg)">Weight</th>
+                <th title="Maximum oxygen consumption during exercise">VO2 Max</th>
+                <th title="Number of heartbeats per minute at rest">Heart</th>
+                <!-- <th title="Blood sugar level after fasting">FBS</th> -->
+                <th title="Body Mass Index">BMI</th>
+                <th title="Number of hours of sleep">Sleep</th>
+                <!-- <th title="One Repetition Maximum (1RM)">Bench Press</th> -->
+                <th title="Number of steps per day">Steps</th>
+                <!-- <th title="Workout">Workout</th> -->
+                <!-- <th title="Maximum amount of chin-ups performed">Chin Ups</th>
+                <th title="Cholesterol level">Cholesterol</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            {% set int = namespace(int=int) %}
+
+            {% for entry in data %}
+                <tr>
+                    <td>{{ entry.date }}</td>
+                    <td style="background-color: {{ entry.weight_color }};">{{ entry.weight }}</td>
+                    <td style="background-color: {{ entry.vo2_max_color }};">{{ entry.vo2_max }}</td>
+                    <td style="background-color: {{ entry.resting_heart_rate_color }};">{{ entry.resting_heart_rate }}</td>
+                    <td style="background-color: {{ entry.bmi_color }};">{{ entry.bmi }}</td>
+                    <td style="background-color: {{ entry.sleep_hours_color }};">{{ entry.sleep_hours}}</td>
+                    <td style="background-color: {{ entry.steps_color }};">{{ entry.steps }}</td>
+                    <td style="background-color: {{ entry.workout_color }};">{{ entry.workout }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
