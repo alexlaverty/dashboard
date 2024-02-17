@@ -120,11 +120,12 @@ with open('index.html', 'w') as f:
 dates = [data["date"] for data in sorted_entries]
 vo2_max = [float(data["vo2_max"]) if "vo2_max" in data else None for data in sorted_entries]
 weight = [float(data["weight"]) if "weight" in data else None for data in sorted_entries]
-
+heart = [float(data["resting_heart_rate"]) if "resting_heart_rate" in data else None for data in sorted_entries]
 bmi = [float(data["bmi"]) if "bmi" in data else None for data in sorted_entries]
 sleep_hours = [float(data["sleep_hours"]) / 60 if "sleep_hours" in data else None for data in sorted_entries]
 
 # Plotting the data
+plt.plot(dates, heart, label='Heart')
 plt.plot(dates, weight, label='Weight')
 plt.plot(dates, vo2_max, label='VO2 Max')
 plt.plot(dates, bmi, label='BMI')
