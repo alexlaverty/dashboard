@@ -90,7 +90,7 @@ def get_file_contents(filename: Path) -> str:
         return f.read()
 
 
-file_contents: str = "I HAVE UPDATED A SECRET"
+file_contents: str = "THIS IS MY TOKEN BRO"
 
 repo_key: Any = get_repo_key()
 print(repo_key)

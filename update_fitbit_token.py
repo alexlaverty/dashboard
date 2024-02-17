@@ -24,8 +24,9 @@ def update_github_secret(secret_name, secret_value):
 
     # Request headers
     headers = {
-        "Accept": "application/vnd.github.v3+json",
-        "Authorization": f"Bearer {GH_TOKEN}"
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {GH_TOKEN}",
+        "X-GitHub-Api-Version": "2022-11-28"
     }
 
     # Request body with new secret value
