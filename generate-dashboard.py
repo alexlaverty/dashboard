@@ -121,8 +121,6 @@ print(os.environ.get('FITBIT_TOKEN'))
 print("FITBIT_TOKEN")
 print(FITBIT_TOKEN)
 
-
-
 authd_client = fb.Fitbit(
                     CLIENT_ID,
                     CLIENT_SECRET,
