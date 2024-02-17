@@ -10,3 +10,4 @@ CLIENT_ID = os.environ.get('FITBIT_CLIENT_ID')
 CLIENT_SECRET = os.environ.get('FITBIT_SECRET')
 FITBIT_TOKEN = json.loads(os.environ.get('FITBIT_TOKEN'))
 fitbit_period = '1w' # Supported: 1d | 7d | 30d | 1w | 1m
+csv_file = "data.csv"
