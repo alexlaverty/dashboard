@@ -26,6 +26,7 @@ try:
     response = requests.get(token_secret_url, headers=headers)
     response.raise_for_status()
     response_json = response.json()
+    print(response_json)
     existing_token = json.loads(response_json['secret']['value'])
 
     # Refresh the access token
