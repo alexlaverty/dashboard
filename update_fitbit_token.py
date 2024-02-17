@@ -33,6 +33,8 @@ def update_github_secret(secret_name, secret_value):
         "encrypted_value": secret_value
     }
 
+    print(f"api_endpoint: {api_endpoint}")
+
     # Send PUT request to update the secret
     response = requests.put(api_endpoint, json=data, headers=headers)
 
