@@ -8,7 +8,7 @@ CLIENT_ID = os.environ.get('FITBIT_CLIENT_ID')
 CLIENT_SECRET = os.environ.get('FITBIT_SECRET')
 
 # GitHub Actions repository secrets
-GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
+GH_TOKEN = os.environ.get('GH_TOKEN')
 REPO_OWNER = 'alexlaverty'
 REPO_NAME = 'dashboard'
 SECRET_NAME = 'FITBIT_TOKEN'
@@ -20,7 +20,7 @@ try:
     # Read existing token JSON from GitHub Actions repository secret
     token_secret_url = f'https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/actions/secrets/{SECRET_NAME}'
     headers = {
-        'Authorization': f'token {GITHUB_TOKEN}',
+        'Authorization': f'token {GH_TOKEN}',
         'Accept': 'application/vnd.github.v3+json'
     }
     response = requests.get(token_secret_url, headers=headers)

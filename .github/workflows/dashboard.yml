@@ -27,7 +27,7 @@ jobs:
           FITBIT_CLIENT_ID: ${{ secrets.FITBIT_CLIENT_ID }}
           FITBIT_SECRET: ${{ secrets.FITBIT_SECRET }}
           FITBIT_TOKEN: ${{ secrets.FITBIT_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set GitHub secret
         run: |
