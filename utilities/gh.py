@@ -86,7 +86,7 @@ def get_file_contents(filename: Path) -> str:
 
 def write_token_dict(token_dict):
     if token_dict:
-        print("refreshed_token dict :")
+        print("Refreshing Access Token :")
         file_contents: str = str(token_dict)
         repo_key: Any = get_repo_key()
         encrypted_secret: str = encrypt(repo_key["key"], file_contents)
