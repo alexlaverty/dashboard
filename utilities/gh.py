@@ -61,11 +61,11 @@ def write_secret(secret_name: str, repo_key: Any, secret_encrypted_string: str) 
         "encrypted_value": secret_encrypted_string,
         "key_id": repo_key["key_id"],
     }
-    print("---------------------------------")
-    print(url)
-    print(headers)
-    print(data)
-    print("---------------------------------")
+    # print("---------------------------------")
+    # print(url)
+    # print(headers)
+    # print(data)
+    # print("---------------------------------")
     x: Response = requests.put(url, json=data, headers=headers, timeout=120)
     print(x.text)
 

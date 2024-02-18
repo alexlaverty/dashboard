@@ -59,8 +59,8 @@ def apply_color_mapping(entries, metric):
 
     for entry in entries:
         try:
-            print(metric)
-            print(entry)
+            # print(metric)
+            # print(entry)
             value = entry[metric]  # Use dictionary indexing to get the value associated with the key 'metric'
             color = map_to_color(value, min_value, max_value, start_color, end_color, metric)
             entry[f'{metric}_color'] = color  # Assign the color to the dictionary directly
@@ -106,7 +106,7 @@ sorted_entries = sorted(consolidated_entries, key=lambda x: x["date"], reverse=T
 
 # Convert to JSON-like format
 json_data = json.dumps(sorted_entries, indent=4)
-print(json_data)
+#print(json_data)
 
 # Render the template with the data
 rendered_template = template.render(data=sorted_entries)
