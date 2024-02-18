@@ -8,7 +8,7 @@ on:
     branches:
       - main
 jobs:
-  update_token:
+  GeneratingDashboard:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
