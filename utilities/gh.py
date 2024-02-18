@@ -3,8 +3,7 @@ import requests
 from settings import (github_token,
                       api_endpoint,
                       github_user,
-                      github_repo,
-                      secret_name)
+                      github_repo)
 from nacl import encoding
 from nacl.public import PublicKey, SealedBox
 from typing import Any, Dict
@@ -45,7 +44,7 @@ def encrypt(public_key: str, secret_value: str) -> str:
     return b64encode(encrypted).decode("utf-8")
 
 
-def write_secret(repo_key: Any, secret_encrypted_string: str) -> None:
+def write_secret(secret_name: str, repo_key: Any, secret_encrypted_string: str) -> None:
     """Add a secret to GitHub.
 
     Args:
@@ -84,10 +83,10 @@ def get_file_contents(filename: Path) -> str:
         return f.read()
 
 
-def write_token_dict(token_dict):
-    if token_dict:
-        print("Refreshing Access Token :")
-        file_contents: str = str(token_dict)
-        repo_key: Any = get_repo_key()
-        encrypted_secret: str = encrypt(repo_key["key"], file_contents)
-        write_secret(repo_key, encrypted_secret)
+def write_github_secret(secret_name, secret_value):
+
+    print(f"Writing Secret to Github : {secret_name}")
+    file_contents: str = secret_value
+    repo_key: Any = get_repo_key()
+    encrypted_secret: str = encrypt(repo_key["key"], file_contents)
+    write_secret(secret_name, repo_key, encrypted_secret)

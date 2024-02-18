@@ -26,10 +26,11 @@ jobs:
         run: python generate-dashboard.py
         env:
           FITBIT_CLIENT_ID: ${{ secrets.FITBIT_CLIENT_ID }}
-          FITBIT_SECRET: ${{ secrets.FITBIT_SECRET }}
-          FITBIT_TOKEN: ${{ secrets.FITBIT_TOKEN }}
+          FITBIT_CLIENT_SECRET: ${{ secrets.FITBIT_CLIENT_SECRET }}
+          FITBIT_ACCESS_TOKEN: ${{ secrets.FITBIT_ACCESS_TOKEN }}
+          FITBIT_REFRESH_TOKEN: ${{ secrets.FITBIT_REFRESH_TOKEN }}
+          FITBIT_USER_ID: ${{ secrets.FITBIT_USER_ID }}
           GH_TOKEN: ${{ secrets.GH_PERSONAL_TOKEN }}
-          MY_FITBIT_TOKEN: ${{ secrets.MY_FITBIT_TOKEN }}
 
       - name: Git Push Updates
         run: |
