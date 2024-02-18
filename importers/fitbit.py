@@ -97,11 +97,10 @@ def syncfitbit():
         'sleep/minutesAsleep': 'sleep_hours',
     }
 
-    # Retrieve cardioscore data and add it to the database
-    cardioscore_data = get_fitbit_cardioscore()
-    add_data_to_csv(cardioscore_data.get('cardioScore', []), 'vo2_max')
-
     for data_type, metric in metrics_mapping.items():
             fitbit_data = get_fitbit_data(data_type)
             add_data_to_csv(fitbit_data.get(data_type.replace('/','-'), []), metric)
 
+    # Retrieve cardioscore data and add it to the database
+    cardioscore_data = get_fitbit_cardioscore()
+    add_data_to_csv(cardioscore_data.get('cardioScore', []), 'vo2_max')
