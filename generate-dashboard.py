@@ -4,6 +4,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 import datetime
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
 # Load the Jinja template environment
 env = Environment(
@@ -14,7 +15,7 @@ env = Environment(
 # Load the Jinja template file
 template = env.get_template('template.html')
 
-syncfitbit()
+#syncfitbit()
 
 
 import json
@@ -140,6 +141,14 @@ plt.legend()
 
 # Adding y-axis major grid lines
 plt.grid(axis='y', linestyle='-', linewidth='0.5', color='gray')
+
+# Set the frequency of x-axis date ticks
+#plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=1))  # Show ticks for each month
+plt.gca().xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=mdates.MONDAY))
+
+# Format the x-axis date labels
+#plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+
 
 # Save the plot as a PNG file
 plt.tight_layout()
