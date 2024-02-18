@@ -134,9 +134,12 @@ plt.plot(dates, sleep_hours, label='Sleep Hours')
 # Adding labels and title
 plt.xlabel('Date')
 plt.ylabel('Value')
-plt.title('Series Data')
-plt.xticks(rotation=45)
+#plt.title('Series Data')
+plt.xticks(rotation=90)
 plt.legend()
+
+# Adding y-axis major grid lines
+plt.grid(axis='y', linestyle='-', linewidth='0.5', color='gray')
 
 # Save the plot as a PNG file
 plt.tight_layout()
