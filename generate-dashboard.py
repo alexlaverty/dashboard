@@ -15,7 +15,7 @@ env = Environment(
 # Load the Jinja template file
 template = env.get_template('template.html')
 
-#syncfitbit()
+syncfitbit()
 
 
 import json
