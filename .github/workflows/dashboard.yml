@@ -2,8 +2,8 @@ name: Generate Dashboard
 permissions:
   contents: write
 on:
-  schedule:
-    - cron: '0 */5 * * *'  # Run every 5 hours
+  # schedule:
+  #   - cron: '0 */5 * * *'  # Run every 5 hours
   push:
     branches:
       - main
